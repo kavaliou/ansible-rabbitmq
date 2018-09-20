@@ -1,5 +1,15 @@
 ---
 
+- name: Generate the configuration of rabbitmq
+  template:
+    src: rabbitmq.config.j2
+    dest: /etc/rabbitmq/rabbitmq.config
+    owner: rabbitmq
+    group: rabbitmq
+    mode: 0644
+    backup: yes
+  notify: rabbitmq restart
+
 - include: install.deb.yml
   when: ansible_os_family == 'Debian' and not rabbitmq_docker
 

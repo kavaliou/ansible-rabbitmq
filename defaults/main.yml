@@ -1,5 +1,7 @@
 ---
 
+ansible_become: yes
+
 rabbitmq_enabled: yes                   # Enable the role
 
 rabbitmq_plugins:                       # Ensure the plugins is installed
@@ -26,3 +28,6 @@ rabbitmq_docker_net: bridge
 rabbitmq_docker_user: guest
 rabbitmq_docker_pass: guest
 rabbitmq_docker_vhost: "/"
+
+rabbitmq_conf_tcp_listeners_address: ""
+rabbitmq_conf_tcp_listeners_port: 5672
