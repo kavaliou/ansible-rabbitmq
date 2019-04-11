@@ -1,7 +1,5 @@
 ---
 
-ansible_become: yes
-
 rabbitmq_enabled: yes                   # Enable the role
 
 rabbitmq_plugins:                       # Ensure the plugins is installed
