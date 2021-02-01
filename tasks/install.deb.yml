@@ -1,11 +1,11 @@
 ---
 
-- name: Add RabbitMQ key
-  apt_key: url=https://www.rabbitmq.com/rabbitmq-release-signing-key.asc state=present id=6026DFCA
+- name: Download RabbitMQ package.
+  get_url:
+    url: "{{ rabbitmq_deb_url }}"
+    dest: "/tmp/{{ rabbitmq_deb }}"
 
-- name: Add RabbitMQ repository
-  apt_repository: repo='deb http://www.rabbitmq.com/debian/ testing main' update_cache=yes
-
-- name: Ensure RabbitMQ is installed
-  apt: pkg=rabbitmq-server
-
+- name: Ensure RabbitMQ is installed.
+  apt:
+    deb: "/tmp/{{ rabbitmq_deb }}"
+    state: present
