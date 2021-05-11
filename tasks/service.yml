@@ -1,5 +1,17 @@
 ---
 
+- name: import rabbitmq main key
+  become: true
+  command: 'apt-key adv --keyserver "hkps://keys.openpgp.org" --recv-keys "0x0A9AF2115F4687BD29803A206B73A36E6026DFCA"'
+
+- name: import launchpad key
+  become: true
+  command: 'apt-key adv --keyserver "keyserver.ubuntu.com" --recv-keys "F77F1EDA57EBB1CC"'
+
+- name: import packagecloud key
+  become: true
+  command: 'apt-key adv --keyserver "keyserver.ubuntu.com" --recv-keys "F6609E60DC62814E"'
+
 - name: Install Erlang
   import_role:
     name: deps/rockandska/ansible-role-erlang
