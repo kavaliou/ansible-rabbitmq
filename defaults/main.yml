@@ -23,3 +23,6 @@ rabbitmq_users:                         # Ensure the users added
 
 rabbitmq_users_remove:                  # Ensure the users removed
   - guest
+
+rabbitmq_conf_tcp_listeners_address: ''
+rabbitmq_conf_tcp_listeners_port: 5672
